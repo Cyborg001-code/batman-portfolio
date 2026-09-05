@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #F5F3EE;
+    color: #202124;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* ==========================================================================
+   BATMAN V SUPERMAN / TACTICAL SUIT SHADERS & ANIMATIONS
+   ========================================================================== */
+
+/* Tactical Armor Panel (Chamfered Snyderverse Mech Suit Aesthetic) */
+.bat-armor-plate {
+  background: linear-gradient(145deg, rgba(79, 80, 77, 0.25) 0%, rgba(15, 16, 16, 0.95) 75%);
+  border: 1px solid rgba(140, 122, 75, 0.35);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.9), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+  clip-path: polygon(
+    0 12px, 
+    12px 0, 
+    calc(100% - 12px) 0, 
+    100% 12px, 
+    100% calc(100% - 12px), 
+    calc(100% - 12px) 100%, 
+    12px 100%, 
+    0 calc(100% - 12px)
+  );
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bat-armor-plate:hover {
+  border-color: rgba(140, 122, 75, 0.85);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 35px -10px rgba(184, 50, 27, 0.25), inset 0 0 15px rgba(140, 122, 75, 0.15);
+}
+
+/* Crimson Threat Panel */
+.bat-threat-plate {
+  background: linear-gradient(145deg, rgba(184, 50, 27, 0.15) 0%, rgba(15, 16, 16, 0.95) 80%);
+  border: 1px solid rgba(184, 50, 27, 0.4);
+  clip-path: polygon(
+    0 10px, 
+    10px 0, 
+    calc(100% - 10px) 0, 
+    100% 10px, 
+    100% calc(100% - 10px), 
+    calc(100% - 10px) 100%, 
+    10px 100%, 
+    0 calc(100% - 10px)
+  );
+}
+
+/* Atmospheric Lightning & Signal Pulses */
+@keyframes lightningFlash {
+  0%, 90%, 100% { opacity: 0; }
+  92%, 96% { opacity: 0.85; }
+  94%, 98% { opacity: 0.35; }
+}
+.animate-lightning {
+  animation: lightningFlash 3.2s infinite;
+}
+
+@keyframes signalPulse {
+  0%, 100% { transform: scale(0.96); opacity: 0.35; }
+  50% { transform: scale(1.08); opacity: 0.7; }
+}
+.animate-signal-pulse {
+  animation: signalPulse 2.8s ease-in-out infinite;
+}
+
+/* Pulse Glow Keyframes for Interactive Buttons */
+@keyframes brassPulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(140, 122, 75, 0.3); }
+  50% { box-shadow: 0 0 24px rgba(140, 122, 75, 0.7); }
+}
+.animate-brass-pulse {
+  animation: brassPulse 2.4s infinite;
+}
